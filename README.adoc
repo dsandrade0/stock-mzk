@@ -1,0 +1,59 @@
+= Stock-mzk
+
+image:https://img.shields.io/badge/vert.x-3.8.5-purple.svg[link="https://vertx.io"]
+
+This application was generated using http://start.vertx.io
+
+== Utilização
+
+Um pequeno tutorial de utilização dos endpoints
+
+** GET /api/estoque
+ - Devolve a lista de produtos no estoque
+
+** GET /api/vendas
+ - Devolve a lista de produtos vendidos
+
+** POST /api/salvar
+ - Cadastra um produto no estoque.
+ - Objeto esperado
+`{
+    "nome": "string",
+    "codigoBarras": "string",
+    "numeroSerie": "String"
+}`
+
+** DELETE /api/apagar
+ - Apaga um item do estoque
+ - Objeto esperado
+`{ "codigoBarras": "string", "numeroSerie": "string"}`
+
+** POST /api/vender
+- Objeto esperado
+`{ "codigoBarras": "string", "numeroSerie": "string"}`
+
+== Building
+
+To launch your tests:
+```
+./mvnw clean test
+```
+
+To package your application:
+```
+./mvnw clean package
+```
+
+To run your application:
+```
+java -jar target/stock-mzk-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+```
+
+== Help
+
+* https://vertx.io/docs/[Vert.x Documentation]
+* https://stackoverflow.com/questions/tagged/vert.x?sort=newest&pageSize=15[Vert.x Stack Overflow]
+* https://groups.google.com/forum/?fromgroups#!forum/vertx[Vert.x User Group]
+* https://gitter.im/eclipse-vertx/vertx-users[Vert.x Gitter]
+
+
