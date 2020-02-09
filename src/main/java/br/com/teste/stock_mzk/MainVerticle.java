@@ -26,11 +26,13 @@ public class MainVerticle extends AbstractVerticle {
     var router = Router.router(vertx);
     router.get("/api/estoque")
       .handler(produtoHandler::getTodosProdutosEmEstoque)
-      .produces(APPLICATION_JSON);
+      .produces(APPLICATION_JSON)
+      .failureHandler(falhaHandler::erro);
 
     router.get("/api/vendas")
       .handler(produtoHandler::getTodosProdutosVendidos)
-      .produces(APPLICATION_JSON);
+      .produces(APPLICATION_JSON)
+      .failureHandler(falhaHandler::erro);
 
     router.post().handler(BodyHandler.create());
     router.post("/api/salvar")
